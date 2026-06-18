@@ -487,8 +487,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   .then(function(res){ return res.json(); })
   .then(function(data){
     if(data.success){
-      document.getElementById('success-msg').classList.add('show');
+      var successEl = document.getElementById('success-msg');
       form.style.display = 'none';
+      successEl.classList.add('show');
+      successEl.scrollIntoView({behavior:'smooth', block:'center'});
     } else {
       btn.textContent = originalText;
       btn.disabled = false;

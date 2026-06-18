@@ -570,7 +570,9 @@ document.getElementById('applyForm').addEventListener('submit', function(e){
   .then(function(data){
     if(data.success){
       form.style.display = 'none';
-      document.getElementById('apply-success').style.display = 'block';
+      var successEl = document.getElementById('apply-success');
+      successEl.style.display = 'block';
+      successEl.scrollIntoView({behavior:'smooth', block:'center'});
     } else {
       btn.textContent = originalText;
       btn.disabled = false;

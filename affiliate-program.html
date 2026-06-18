@@ -840,7 +840,9 @@ document.getElementById('affiliateForm').addEventListener('submit', function(e){
   .then(function(data){
     if(data.success){
       form.style.display = 'none';
-      document.getElementById('success-msg').classList.add('show');
+      var successEl = document.getElementById('success-msg');
+      successEl.classList.add('show');
+      successEl.scrollIntoView({behavior:'smooth', block:'center'});
     } else {
       btn.textContent = originalText;
       btn.disabled = false;
