@@ -17,19 +17,6 @@
   <meta name="twitter:title" content="Contact Elysium Care™ | Talk to Us">
   <meta name="twitter:description" content="Reach Elysium Care by phone, WhatsApp or email. +1 678-541-8184. care@elysiumcare.org. We respond personally.">
   <link rel="canonical" href="https://elysiumcare.org/contact.html">
-  <link rel="canonical" href="https://elysiumcare.org/contact.html">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elysiumcare.org/contact.html">
-<meta property="og:title" content="Contact Elysium Care — We Are Here">
-<meta property="og:description" content="Reach out to begin a care plan, get free scam recovery support, or simply ask a question.">
-<meta property="og:site_name" content="Elysium Care™">
-<meta property="og:image" content="https://elysiumcare.org/og-image.jpg">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Elysium Care — We Are Here">
-<meta name="twitter:description" content="Reach out to begin a care plan, get free scam recovery support, or simply ask a question.">
-<meta name="twitter:image" content="https://elysiumcare.org/og-image.jpg">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDSLFC1B7G"></script>
 <script>
@@ -38,8 +25,6 @@
   gtag('js', new Date());
   gtag('config', 'G-QDSLFC1B7G');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Elysium Care™ — Start Your Care Journey Today</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -174,22 +159,29 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       display: none !important;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
+      height: 100vh; height: 100dvh;
       background: rgba(250,246,240,0.98);
       backdrop-filter: blur(20px);
       flex-direction: column !important;
       align-items: center;
-      justify-content: center;
-      gap: 2rem !important;
+      justify-content: flex-start;
+      gap: 0.9rem !important;
       z-index: 150;
       font-size: 1.1rem !important;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 5rem 1.5rem 2rem;
+      box-sizing: border-box;
     }
+    .nav-links li { flex-shrink: 0; }
     .nav-links.mobile-open {
       display: flex !important;
     }
     .nav-links li { text-align: center; }
     .nav-links a { font-size: 1rem; letter-spacing: 0.12em; }
-    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; }
+    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; margin-top: 0.5rem; }
     .nav-hamburger { position: relative; z-index: 200; }
+    body.menu-open .wa-float { display: none !important; }
   }
 
 
@@ -222,9 +214,43 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 @media (max-width: 600px) {
   .wa-float { bottom: 16px; right: 16px; padding: 12px; border-radius: 50%; }
   .wa-float span { display: none; }
+  .purpose-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 700px) {
+  .purpose-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elysium Care",
+  "alternateName": "Elysium Care™",
+  "url": "https://elysiumcare.org",
+  "logo": "https://elysiumcare.org/images/home-img-01.jpeg",
+  "description": "Dignified senior companionship and scam protection service. Free recovery support for scam survivors.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arshad Noor"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-541-8184",
+    "contactType": "customer service",
+    "email": "care@elysiumcare.org",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@ElysiumCareOfficial",
+    "https://www.instagram.com/ElysiumCareOfficial",
+    "https://www.facebook.com/ElysiumCareOfficial",
+    "https://www.youtube.com/@ElysiumCareOfficial"
+  ]
+}
+</script>
 </head>
 <body>
 <nav>
@@ -254,7 +280,7 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 
 <div class="emergency-band">
   <div class="emergency-icon">🚨</div>
-  <div class="emergency-text"><strong>Active Scam Emergency?</strong> If your loved one is currently being scammed or is about to send money — call us immediately. Do not wait for an email response. <strong>Phone: +1 (800) ELYSIUM</strong> &nbsp;|&nbsp; WhatsApp: <a href="#">Message us now</a></div>
+  <div class="emergency-text"><strong>Active Scam Emergency?</strong> If your loved one is currently being scammed or is about to send money — call us immediately. Do not wait for an email response. <strong>Phone: +1 678-541-8184</strong> &nbsp;|&nbsp; WhatsApp: <a href="https://wa.me/16785418184">Message us now</a></div>
 </div>
 
 <!-- CONTACT SECTION -->
@@ -295,7 +321,7 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
             <div class="method-icon">📞</div>
             <div class="method-info">
               <div class="method-label">Phone</div>
-              <div class="method-value">+1 (800) ELYSIUM</div>
+              <div class="method-value">+1 678-541-8184</div>
               <div class="method-note">For urgent matters and active scam emergencies</div>
             </div>
           </a>
@@ -315,8 +341,14 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
           <div class="section-label">Send a Message</div>
           <h2 style="font-size:1.8rem;margin-bottom:1.5rem;">Tell us how we can <em>help</em></h2>
 
+          <form id="contactForm">
+          <input type="hidden" name="access_key" value="d8d55c24-e77c-4c46-8356-bcc4fb37f4b3">
+          <input type="hidden" name="from_name" value="Elysium Care Website — Contact Form">
+          <input type="hidden" name="subject" value="New Contact Message — Elysium Care">
+
           <div class="form-group">
             <label>I am reaching out about</label>
+            <input type="hidden" name="Reason" id="reasonField">
             <div class="reason-pills">
               <span class="reason-pill" onclick="selectPill(this)">Enrolling a Parent</span>
               <span class="reason-pill" onclick="selectPill(this)">Senior Care Plans</span>
@@ -331,22 +363,22 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
           <div class="form-row">
             <div class="form-group">
               <label>Your Name</label>
-              <input type="text" placeholder="Full name">
+              <input type="text" name="Name" placeholder="Full name" required>
             </div>
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" placeholder="your@email.com">
+              <input type="email" name="Email" placeholder="your@email.com" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label>Phone / WhatsApp (optional)</label>
-              <input type="text" placeholder="+1 678-541-8184">
+              <input type="text" name="Phone" placeholder="+1 678-541-8184">
             </div>
             <div class="form-group">
               <label>Country</label>
-              <select>
+              <select name="Country">
                 <option value="">Select your country</option>
                 <option>United States</option>
                 <option>United Kingdom</option>
@@ -363,12 +395,12 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 
           <div class="form-group">
             <label>Your Message</label>
-            <textarea placeholder="Tell us anything — about your loved one, your situation, your question, or simply that you need someone to talk to. We read every word."></textarea>
+            <textarea name="Message" placeholder="Tell us anything — about your loved one, your situation, your question, or simply that you need someone to talk to. We read every word." required></textarea>
           </div>
 
           <div class="form-group">
             <label>Preferred Way to Reach You Back</label>
-            <select>
+            <select name="Preferred Contact Method">
               <option>Email</option>
               <option>WhatsApp</option>
               <option>Phone Call</option>
@@ -376,8 +408,9 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
             </select>
           </div>
 
-          <button class="form-submit" onclick="submitForm()">Send My Message</button>
+          <button type="submit" class="form-submit">Send My Message</button>
           <p class="form-privacy">🔒 Everything you share is completely confidential. We will never share your information with any third party — including family members — without your explicit permission.</p>
+          </form>
 
           <div class="success-msg" id="success-msg">
             <h3>Message received. Thank you. 🤍</h3>
@@ -436,11 +469,38 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 function selectPill(el){
   document.querySelectorAll('.reason-pill').forEach(p=>p.classList.remove('selected'));
   el.classList.add('selected');
+  document.getElementById('reasonField').value = el.textContent;
 }
-function submitForm(){
-  document.getElementById('success-msg').classList.add('show');
-  document.querySelector('.form-submit').style.display='none';
-}
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('.form-submit');
+  var originalText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  var formData = new FormData(form);
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: formData
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(data.success){
+      document.getElementById('success-msg').classList.add('show');
+      form.style.display = 'none';
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      alert('Something went wrong sending your message. Please try WhatsApp or email us directly.');
+    }
+  })
+  .catch(function(){
+    btn.textContent = originalText;
+    btn.disabled = false;
+    alert('Something went wrong sending your message. Please try WhatsApp or email us directly.');
+  });
+});
 document.querySelectorAll('.purpose-card,.contact-method').forEach(el=>{
   el.style.opacity='0';el.style.transform='translateY(16px)';
   el.style.transition='opacity 0.6s ease,transform 0.6s ease';
@@ -456,7 +516,9 @@ document.querySelectorAll('.purpose-card,.contact-method').forEach(el=>{
   btn.addEventListener('click', function(){
     btn.classList.toggle('open');
     links.classList.toggle('mobile-open');
-    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    var isOpen = links.classList.contains('mobile-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', isOpen);
   });
   // Close on link click
   links.querySelectorAll('a').forEach(function(a){
@@ -464,6 +526,7 @@ document.querySelectorAll('.purpose-card,.contact-method').forEach(el=>{
       btn.classList.remove('open');
       links.classList.remove('mobile-open');
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     });
   });
 })();

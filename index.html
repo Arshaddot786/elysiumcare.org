@@ -17,19 +17,6 @@
   <meta name="twitter:title" content="Elysium Care™ | Senior Companionship & Scam Protection Service">
   <meta name="twitter:description" content="Elysium Care provides compassionate senior companionship, scam protection and emotional support. Founded by a scam survivor. Free first 2 sessions for scam victims.">
   <link rel="canonical" href="https://elysiumcare.org/">
-  <link rel="canonical" href="https://elysiumcare.org/">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elysiumcare.org/">
-<meta property="og:title" content="Elysium Care™ — Where Dignity Meets Protection">
-<meta property="og:description" content="Daily human connection and scam protection for seniors. Free recovery for scam survivors. Real care, real people.">
-<meta property="og:site_name" content="Elysium Care™">
-<meta property="og:image" content="https://elysiumcare.org/og-image.jpg">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Elysium Care™ — Where Dignity Meets Protection">
-<meta name="twitter:description" content="Daily human connection and scam protection for seniors. Free recovery for scam survivors. Real care, real people.">
-<meta name="twitter:image" content="https://elysiumcare.org/og-image.jpg">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDSLFC1B7G"></script>
 <script>
@@ -38,8 +25,6 @@
   gtag('js', new Date());
   gtag('config', 'G-QDSLFC1B7G');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elysium Care™ — Senior Companionship & Scam Protection | Karachi Pakistan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -937,22 +922,29 @@
       display: none !important;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
+      height: 100vh; height: 100dvh;
       background: rgba(250,246,240,0.98);
       backdrop-filter: blur(20px);
       flex-direction: column !important;
       align-items: center;
-      justify-content: center;
-      gap: 2rem !important;
+      justify-content: flex-start;
+      gap: 0.9rem !important;
       z-index: 150;
       font-size: 1.1rem !important;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 5rem 1.5rem 2rem;
+      box-sizing: border-box;
     }
+    .nav-links li { flex-shrink: 0; }
     .nav-links.mobile-open {
       display: flex !important;
     }
     .nav-links li { text-align: center; }
     .nav-links a { font-size: 1rem; letter-spacing: 0.12em; }
-    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; }
+    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; margin-top: 0.5rem; }
     .nav-hamburger { position: relative; z-index: 200; }
+    body.menu-open .wa-float { display: none !important; }
   }
 
 
@@ -985,9 +977,56 @@
 @media (max-width: 600px) {
   .wa-float { bottom: 16px; right: 16px; padding: 12px; border-radius: 50%; }
   .wa-float span { display: none; }
+  .founder-gallery-grid { grid-template-columns: repeat(2,1fr) !important; gap: 0.6rem !important; }
+  .founder-gallery-grid img { height: 140px !important; }
+  .founder-bio-section { padding: 4rem 1.2rem !important; }
+  .gender-card { padding: 2rem 1.4rem !important; }
+  .gender-card h3 { font-size: 1.4rem !important; }
+  .gender-science { padding: 1.5rem 1.4rem !important; flex-direction: column !important; }
 }
 
+@media (max-width: 900px) {
+  .gender-cards { grid-template-columns: 1fr !important; gap: 1.2rem !important; }
+}
+
+@media (max-width: 480px) {
+  .founder-gallery-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+html, body { overflow-x: hidden; }
+img { max-width: 100%; }
+.founder-gallery-grid img { height: 210px; }
+
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elysium Care",
+  "alternateName": "Elysium Care™",
+  "url": "https://elysiumcare.org",
+  "logo": "https://elysiumcare.org/images/home-img-01.jpeg",
+  "description": "Dignified senior companionship and scam protection service. Free recovery support for scam survivors.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arshad Noor"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-541-8184",
+    "contactType": "customer service",
+    "email": "care@elysiumcare.org",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@ElysiumCareOfficial",
+    "https://www.instagram.com/ElysiumCareOfficial",
+    "https://www.facebook.com/ElysiumCareOfficial",
+    "https://www.youtube.com/@ElysiumCareOfficial"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1249,7 +1288,7 @@
       <span style="font-size:0.64rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap;">Before — The Peak Years</span>
       <div style="flex:1;height:1px;background:var(--border);"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:1.8rem;">
+    <div class="founder-gallery-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:1.8rem;">
       <div style="border-radius:10px;overflow:hidden;position:relative;box-shadow:0 8px 24px rgba(0,0,0,0.1);">
         <img src="images/home-img-02.jpeg" alt="10M celebration" style="width:100%;height:210px;object-fit:cover;object-position:center 55%;display:block;" loading="lazy">
         <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 100%);">10M Goal · Dec 2022</div>
@@ -1273,7 +1312,7 @@
       <span style="font-size:0.64rem;letter-spacing:0.22em;text-transform:uppercase;color:#8b3a3a;white-space:nowrap;">After — The Dark Years</span>
       <div style="flex:1;height:1px;background:rgba(139,26,26,0.2);"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:1.8rem;">
+    <div class="founder-gallery-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:1.8rem;">
       <div style="border-radius:10px;overflow:hidden;position:relative;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
         <img src="images/home-img-06.jpeg" alt="Crying September 2023" style="width:100%;height:210px;object-fit:cover;object-position:center 32%;display:block;filter:grayscale(15%);" loading="lazy">
         <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(220,170,170,0.9);background:linear-gradient(to top,rgba(10,2,2,0.82) 0%,transparent 100%);">Sept 25, 2023</div>
@@ -1297,7 +1336,7 @@
       <span style="font-size:0.64rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);white-space:nowrap;">The Comeback — Starting Over</span>
       <div style="flex:1;height:1px;background:var(--border);"></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;">
+    <div class="founder-gallery-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;">
       <div style="border-radius:10px;overflow:hidden;position:relative;box-shadow:0 8px 24px rgba(0,0,0,0.1);">
         <img src="images/home-img-10.jpeg" alt="Arshad red tshirt standing tall" style="width:100%;height:210px;object-fit:cover;object-position:center 40%;display:block;" loading="lazy">
         <div style="position:absolute;bottom:0;left:0;right:0;padding:0.7rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 100%);">Standing again — Karachi</div>
@@ -1559,7 +1598,7 @@
 <!-- COMPANION PERSONALISATION SECTION -->
 <section style="background:var(--warm-white); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
   <div style="max-width:1100px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
+    <div class="companion-match-outer" style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
       <div>
         <div class="section-label">One-Time Investment</div>
         <h2>Companion <em>Personalisation</em><br>& Deep Match Profile</h2>
@@ -1567,7 +1606,7 @@
         <p style="font-size:0.95rem; line-height:1.9; color:var(--mid); font-weight:300;">We then train your loved one's companion specifically on this profile — so from the very first call they feel <strong style="color:var(--brown);">known</strong>. Not like a new client being processed. Like someone who has been genuinely looking forward to speaking with them.</p>
       </div>
       <div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="companion-match-cards" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
           <div style="background:var(--cream); border:1px solid var(--border); border-radius:14px; padding:1.5rem; text-align:center;">
             <div style="font-size:1.8rem; margin-bottom:0.6rem;">📞</div>
             <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:500; color:var(--brown); margin-bottom:0.3rem;">Family Intake Call</div>
@@ -1776,7 +1815,9 @@
   btn.addEventListener('click', function(){
     btn.classList.toggle('open');
     links.classList.toggle('mobile-open');
-    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    var isOpen = links.classList.contains('mobile-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', isOpen);
   });
   // Close on link click
   links.querySelectorAll('a').forEach(function(a){
@@ -1784,6 +1825,7 @@
       btn.classList.remove('open');
       links.classList.remove('mobile-open');
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     });
   });
 })();

@@ -17,19 +17,6 @@
   <meta name="twitter:title" content="Partner & Affiliate Program | Elysium Care™">
   <meta name="twitter:description" content="Partner with Elysium Care to protect seniors and support scam survivors. Earn commission while making a real difference.">
   <link rel="canonical" href="https://elysiumcare.org/affiliate-program.html">
-  <link rel="canonical" href="https://elysiumcare.org/affiliate-program.html">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elysiumcare.org/affiliate-program.html">
-<meta property="og:title" content="Earn While You Protect — Elysium Care Partner Program">
-<meta property="og:description" content="Join our affiliate program and earn commission introducing families to trusted senior care.">
-<meta property="og:site_name" content="Elysium Care™">
-<meta property="og:image" content="https://elysiumcare.org/og-image.jpg">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Earn While You Protect — Elysium Care Partner Program">
-<meta name="twitter:description" content="Join our affiliate program and earn commission introducing families to trusted senior care.">
-<meta name="twitter:image" content="https://elysiumcare.org/og-image.jpg">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDSLFC1B7G"></script>
 <script>
@@ -38,8 +25,6 @@
   gtag('js', new Date());
   gtag('config', 'G-QDSLFC1B7G');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elysium Care Affiliate Program — Partner With Purpose</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -244,22 +229,29 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       display: none !important;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
+      height: 100vh; height: 100dvh;
       background: rgba(250,246,240,0.98);
       backdrop-filter: blur(20px);
       flex-direction: column !important;
       align-items: center;
-      justify-content: center;
-      gap: 2rem !important;
+      justify-content: flex-start;
+      gap: 0.9rem !important;
       z-index: 150;
       font-size: 1.1rem !important;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 5rem 1.5rem 2rem;
+      box-sizing: border-box;
     }
+    .nav-links li { flex-shrink: 0; }
     .nav-links.mobile-open {
       display: flex !important;
     }
     .nav-links li { text-align: center; }
     .nav-links a { font-size: 1rem; letter-spacing: 0.12em; }
-    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; }
+    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; margin-top: 0.5rem; }
     .nav-hamburger { position: relative; z-index: 200; }
+    body.menu-open .wa-float { display: none !important; }
   }
 
 
@@ -292,9 +284,47 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 @media (max-width: 600px) {
   .wa-float { bottom: 16px; right: 16px; padding: 12px; border-radius: 50%; }
   .wa-float span { display: none; }
+  .steps-grid { grid-template-columns: 1fr !important; }
+  .commission-grid { grid-template-columns: 1fr !important; }
+  .toolkit-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 700px) {
+  .steps-grid { grid-template-columns: 1fr 1fr !important; }
+  .commission-grid { grid-template-columns: 1fr 1fr !important; }
+  .toolkit-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elysium Care",
+  "alternateName": "Elysium Care™",
+  "url": "https://elysiumcare.org",
+  "logo": "https://elysiumcare.org/images/home-img-01.jpeg",
+  "description": "Dignified senior companionship and scam protection service. Free recovery support for scam survivors.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arshad Noor"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-541-8184",
+    "contactType": "customer service",
+    "email": "care@elysiumcare.org",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@ElysiumCareOfficial",
+    "https://www.instagram.com/ElysiumCareOfficial",
+    "https://www.facebook.com/ElysiumCareOfficial",
+    "https://www.youtube.com/@ElysiumCareOfficial"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -634,24 +664,29 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
     <h2>Ready to <em>partner</em> with us?</h2>
     <p>Applications take less than 3 minutes. We review every one personally and respond within 48 hours. There is no minimum audience size — we partner with micro-influencers, major creators, and professionals alike.</p>
     <div class="apply-form">
+      <form id="affiliateForm">
+      <input type="hidden" name="access_key" value="d8d55c24-e77c-4c46-8356-bcc4fb37f4b3">
+      <input type="hidden" name="from_name" value="Elysium Care Website — Affiliate Application">
+      <input type="hidden" name="subject" value="New Partner Application — Elysium Care">
+      <input type="hidden" name="Platforms" id="platformsField">
       <div class="form-row">
         <div class="form-group">
           <label>Your Full Name</label>
-          <input type="text" placeholder="Full name">
+          <input type="text" name="Name" placeholder="Full name" required>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="your@email.com">
+          <input type="email" name="Email" placeholder="your@email.com" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Country / Location</label>
-          <input type="text" placeholder="Where are you based?">
+          <input type="text" name="Location" placeholder="Where are you based?" required>
         </div>
         <div class="form-group">
           <label>Partner Type</label>
-          <select>
+          <select name="Partner Type">
             <option value="">Select your type</option>
             <option>Content Creator / Influencer</option>
             <option>Podcast Host</option>
@@ -679,11 +714,11 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       <div class="form-row">
         <div class="form-group">
           <label>Your Main Profile / Channel Link</label>
-          <input type="text" placeholder="https://...">
+          <input type="text" name="Profile Link" placeholder="https://...">
         </div>
         <div class="form-group">
           <label>Approximate Audience / Follower Size</label>
-          <select>
+          <select name="Audience Size">
             <option value="">Select range</option>
             <option>Under 1,000</option>
             <option>1,000 – 10,000</option>
@@ -696,9 +731,10 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       </div>
       <div class="form-group">
         <label>Why do you want to partner with Elysium Care?</label>
-        <textarea placeholder="Tell us about your audience, why this mission resonates with you, and how you would authentically share Elysium Care with your community."></textarea>
+        <textarea name="Why Partner" placeholder="Tell us about your audience, why this mission resonates with you, and how you would authentically share Elysium Care with your community." required></textarea>
       </div>
-      <button class="form-submit" onclick="submitApp()">Submit My Application</button>
+      <button type="submit" class="form-submit">Submit My Application</button>
+      </form>
       <div class="success-msg" id="success-msg">
         <p>🤍 Application received. A real member of the Elysium Care team will review it personally and respond within 48 hours. Thank you for wanting to be part of this mission.</p>
       </div>
@@ -780,13 +816,43 @@ function calcEarnings(){
 calcEarnings();
 
 // Platform pills
-function togglePill(el){el.classList.toggle('active');}
+function togglePill(el){
+  el.classList.toggle('active');
+  var selected = Array.from(document.querySelectorAll('.platform-pill.active')).map(p=>p.textContent);
+  document.getElementById('platformsField').value = selected.join(', ');
+}
 
 // Form submit
-function submitApp(){
-  document.getElementById('success-msg').classList.add('show');
-  document.querySelector('.form-submit').style.display='none';
-}
+document.getElementById('affiliateForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('.form-submit');
+  var originalText = btn.textContent;
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+  var formData = new FormData(form);
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: formData
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(data.success){
+      form.style.display = 'none';
+      document.getElementById('success-msg').classList.add('show');
+    } else {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      alert('Something went wrong submitting your application. Please try emailing us directly at partners@elysiumcare.org');
+    }
+  })
+  .catch(function(){
+    btn.textContent = originalText;
+    btn.disabled = false;
+    alert('Something went wrong submitting your application. Please try emailing us directly at partners@elysiumcare.org');
+  });
+});
 
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(btn=>{
@@ -816,7 +882,9 @@ document.querySelectorAll('.step,.commission-card,.partner-card,.toolkit-item').
   btn.addEventListener('click', function(){
     btn.classList.toggle('open');
     links.classList.toggle('mobile-open');
-    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    var isOpen = links.classList.contains('mobile-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', isOpen);
   });
   // Close on link click
   links.querySelectorAll('a').forEach(function(a){
@@ -824,6 +892,7 @@ document.querySelectorAll('.step,.commission-card,.partner-card,.toolkit-item').
       btn.classList.remove('open');
       links.classList.remove('mobile-open');
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     });
   });
 })();

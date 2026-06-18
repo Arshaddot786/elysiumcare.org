@@ -17,19 +17,6 @@
   <meta name="twitter:title" content="Scam Education & Awareness | Elysium Care™">
   <meta name="twitter:description" content="Learn to recognize romance scams, crypto fraud, tech support scams. Free guides protecting seniors and families from financial predators.">
   <link rel="canonical" href="https://elysiumcare.org/scam-education.html">
-  <link rel="canonical" href="https://elysiumcare.org/scam-education.html">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elysiumcare.org/scam-education.html">
-<meta property="og:title" content="Learn the Signs. Protect Your Family. Stop Scams Before They Start.">
-<meta property="og:description" content="Comprehensive scam education — romance fraud, crypto schemes, tech support scams, and more.">
-<meta property="og:site_name" content="Elysium Care™">
-<meta property="og:image" content="https://elysiumcare.org/og-image.jpg">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Learn the Signs. Protect Your Family. Stop Scams Before They Start.">
-<meta name="twitter:description" content="Comprehensive scam education — romance fraud, crypto schemes, tech support scams, and more.">
-<meta name="twitter:image" content="https://elysiumcare.org/og-image.jpg">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDSLFC1B7G"></script>
 <script>
@@ -38,8 +25,6 @@
   gtag('js', new Date());
   gtag('config', 'G-QDSLFC1B7G');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scam Awareness & Education — Elysium Care™ | Protect Your Family</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -205,22 +190,29 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       display: none !important;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
+      height: 100vh; height: 100dvh;
       background: rgba(250,246,240,0.98);
       backdrop-filter: blur(20px);
       flex-direction: column !important;
       align-items: center;
-      justify-content: center;
-      gap: 2rem !important;
+      justify-content: flex-start;
+      gap: 0.9rem !important;
       z-index: 150;
       font-size: 1.1rem !important;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 5rem 1.5rem 2rem;
+      box-sizing: border-box;
     }
+    .nav-links li { flex-shrink: 0; }
     .nav-links.mobile-open {
       display: flex !important;
     }
     .nav-links li { text-align: center; }
     .nav-links a { font-size: 1rem; letter-spacing: 0.12em; }
-    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; }
+    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; margin-top: 0.5rem; }
     .nav-hamburger { position: relative; z-index: 200; }
+    body.menu-open .wa-float { display: none !important; }
   }
 
 
@@ -253,9 +245,44 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 @media (max-width: 600px) {
   .wa-float { bottom: 16px; right: 16px; padding: 12px; border-radius: 50%; }
   .wa-float span { display: none; }
+  .stats-band { grid-template-columns: 1fr !important; }
+  .flags-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 700px) {
+  .flags-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elysium Care",
+  "alternateName": "Elysium Care™",
+  "url": "https://elysiumcare.org",
+  "logo": "https://elysiumcare.org/images/home-img-01.jpeg",
+  "description": "Dignified senior companionship and scam protection service. Free recovery support for scam survivors.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arshad Noor"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-541-8184",
+    "contactType": "customer service",
+    "email": "care@elysiumcare.org",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@ElysiumCareOfficial",
+    "https://www.instagram.com/ElysiumCareOfficial",
+    "https://www.facebook.com/ElysiumCareOfficial",
+    "https://www.youtube.com/@ElysiumCareOfficial"
+  ]
+}
+</script>
 </head>
 <body>
 <nav>
@@ -516,7 +543,9 @@ document.querySelectorAll('.article-card,.flag').forEach(el=>{
   btn.addEventListener('click', function(){
     btn.classList.toggle('open');
     links.classList.toggle('mobile-open');
-    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    var isOpen = links.classList.contains('mobile-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', isOpen);
   });
   // Close on link click
   links.querySelectorAll('a').forEach(function(a){
@@ -524,6 +553,7 @@ document.querySelectorAll('.article-card,.flag').forEach(el=>{
       btn.classList.remove('open');
       links.classList.remove('mobile-open');
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     });
   });
 })();

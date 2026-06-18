@@ -17,19 +17,6 @@
   <meta name="twitter:title" content="Services & Plans | Elysium Care™ Senior Care & Scam Recovery">
   <meta name="twitter:description" content="Senior companion plans from $79/mo. Free scam recovery support. Heartbreak coaching, expat family check-ins, corporate wellbeing. No commitment required.">
   <link rel="canonical" href="https://elysiumcare.org/services.html">
-  <link rel="canonical" href="https://elysiumcare.org/services.html">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://elysiumcare.org/services.html">
-<meta property="og:title" content="Elysium Care Services — Real Companionship, Real Protection">
-<meta property="og:description" content="Senior care plans starting at $79/month. Scam protection, companionship, heartbreak coaching, and family check-ins.">
-<meta property="og:site_name" content="Elysium Care™">
-<meta property="og:image" content="https://elysiumcare.org/og-image.jpg">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Elysium Care Services — Real Companionship, Real Protection">
-<meta name="twitter:description" content="Senior care plans starting at $79/month. Scam protection, companionship, heartbreak coaching, and family check-ins.">
-<meta name="twitter:image" content="https://elysiumcare.org/og-image.jpg">
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDSLFC1B7G"></script>
 <script>
@@ -38,8 +25,6 @@
   gtag('js', new Date());
   gtag('config', 'G-QDSLFC1B7G');
 </script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Senior Care Services & Pricing — Elysium Care™</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -173,22 +158,29 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       display: none !important;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
+      height: 100vh; height: 100dvh;
       background: rgba(250,246,240,0.98);
       backdrop-filter: blur(20px);
       flex-direction: column !important;
       align-items: center;
-      justify-content: center;
-      gap: 2rem !important;
+      justify-content: flex-start;
+      gap: 0.9rem !important;
       z-index: 150;
       font-size: 1.1rem !important;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 5rem 1.5rem 2rem;
+      box-sizing: border-box;
     }
+    .nav-links li { flex-shrink: 0; }
     .nav-links.mobile-open {
       display: flex !important;
     }
     .nav-links li { text-align: center; }
     .nav-links a { font-size: 1rem; letter-spacing: 0.12em; }
-    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; }
+    .nav-cta { padding: 0.8rem 2.5rem !important; font-size: 0.9rem !important; margin-top: 0.5rem; }
     .nav-hamburger { position: relative; z-index: 200; }
+    body.menu-open .wa-float { display: none !important; }
   }
 
 
@@ -224,6 +216,91 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elysium Care",
+  "alternateName": "Elysium Care™",
+  "url": "https://elysiumcare.org",
+  "logo": "https://elysiumcare.org/images/home-img-01.jpeg",
+  "description": "Dignified senior companionship and scam protection service. Free recovery support for scam survivors.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arshad Noor"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-541-8184",
+    "contactType": "customer service",
+    "email": "care@elysiumcare.org",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@ElysiumCareOfficial",
+    "https://www.instagram.com/ElysiumCareOfficial",
+    "https://www.facebook.com/ElysiumCareOfficial",
+    "https://www.youtube.com/@ElysiumCareOfficial"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Senior Companionship and Scam Protection",
+  "provider": {
+    "@type": "Organization",
+    "name": "Elysium Care",
+    "url": "https://elysiumcare.org"
+  },
+  "areaServed": "Worldwide",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Elysium Care Plans",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Essential Check-In"
+        },
+        "price": "149",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Companion & Protection"
+        },
+        "price": "349",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Premium Dignity"
+        },
+        "price": "699",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Scam Recovery Support"
+        },
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "First 2 sessions always free for scam survivors"
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 
@@ -349,14 +426,14 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       <div class="service-card">
         <div class="service-emoji">💬</div>
         <div class="service-name">One-on-One Loneliness Companion</div>
-        <div class="service-price">$149 / month</div>
+        <div class="service-price">$249 / month</div>
         <div class="service-desc">Regular scheduled calls with a trained companion. Real conversation, real connection, real consistency. For anyone who needs someone to talk to.</div>
         <span class="service-tag">All ages</span>
       </div>
       <div class="service-card">
         <div class="service-emoji">🌙</div>
         <div class="service-name">Late Night Support Subscription</div>
-        <div class="service-price">$79 / month</div>
+        <div class="service-price">$249 / month</div>
         <div class="service-desc">For people who struggle most between 10pm and 3am. Asynchronous voice notes, WhatsApp check-ins, scheduled late calls. You are not alone at 2am.</div>
         <span class="service-tag">Evening & night</span>
       </div>
@@ -615,7 +692,9 @@ document.querySelectorAll('.service-card,.plan,.promise-strip').forEach(el=>{
   btn.addEventListener('click', function(){
     btn.classList.toggle('open');
     links.classList.toggle('mobile-open');
-    document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
+    var isOpen = links.classList.contains('mobile-open');
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', isOpen);
   });
   // Close on link click
   links.querySelectorAll('a').forEach(function(a){
@@ -623,6 +702,7 @@ document.querySelectorAll('.service-card,.plan,.promise-strip').forEach(el=>{
       btn.classList.remove('open');
       links.classList.remove('mobile-open');
       document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     });
   });
 })();

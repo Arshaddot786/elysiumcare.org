@@ -17,7 +17,6 @@
   <meta name="twitter:title" content="Arshad Noor – Founder Story | Elysium Care™">
   <meta name="twitter:description" content="Arshad Noor lost $150000 to 3 scams and survived through faith, namaz and choosing not to harm others. This is why Elysium Care exists.">
   <link rel="canonical" href="https://elysiumcare.org/founder-story.html">
-  <link rel="canonical" href="https://elysiumcare.org/founder-story.html">
 <meta property="og:title" content="He Nearly Died Three Times. He Built Something Real Instead.">
 <meta property="og:description" content="10-12 years of 18-hour days. $150,000 gone. Three suicide attempts. A heart attack. Months unable to walk. And namaz — the only thing that kept him alive.">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDSLFC1B7G"></script>
@@ -132,8 +131,8 @@ nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:spa
 .qblock cite{font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);}
 
 /* COMEBACK */
-.comeback-photo{width:100%;max-width:620px;margin:0 auto 3rem;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.2);position:relative;}
-.comeback-photo img{width:100%;display:block;max-height:700px;object-fit:cover;object-position:center 15%;}
+.comeback-photo{width:100%;max-width:620px;margin:0 auto 3rem;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.2);position:relative;background:#1a1510;min-height:300px;}
+.comeback-photo img{width:100%;display:block;max-height:700px;min-height:300px;object-fit:cover;object-position:center 15%;}
 .comeback-ov{position:absolute;bottom:0;left:0;right:0;padding:2.5rem 2rem 2rem;background:linear-gradient(to top,rgba(26,21,16,0.94) 0%,transparent 100%);}
 .comeback-ov p{font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem;}
 .comeback-ov h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:white;}
@@ -163,7 +162,9 @@ footer a{color:var(--gold);text-decoration:none;}
 /* MOBILE */
 @media(max-width:900px){
   nav{padding:1.2rem 1.5rem;}
-  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(250,246,240,0.98);backdrop-filter:blur(20px);flex-direction:column!important;align-items:center;justify-content:center;gap:2rem!important;z-index:150;font-size:1rem!important;}
+  .nav-links{display:none!important;position:fixed;top:0;left:0;right:0;bottom:0;height:100vh;height:100dvh;background:rgba(250,246,240,0.98);backdrop-filter:blur(20px);flex-direction:column!important;align-items:center;justify-content:flex-start;gap:0.9rem!important;z-index:150;font-size:1rem!important;overflow-y:scroll;-webkit-overflow-scrolling:touch;padding:5rem 1.5rem 2rem;box-sizing:border-box;}
+.nav-links li{flex-shrink:0;}
+body.menu-open .wa-float{display:none!important;}
   .nav-links.mobile-open{display:flex!important;}
   .nav-hamburger{display:flex;}
   .hero{padding:7rem 1.5rem 4rem;}
@@ -176,7 +177,16 @@ footer a{color:var(--gold);text-decoration:none;}
   .pi img{height:240px;}
   .pp img{height:260px;}
   .pain-2 .pp img{height:300px;}
+  .may-grid{grid-template-columns:1fr!important;gap:2rem!important;}
+  .comeback-photo img{max-height:420px!important;min-height:240px!important;object-position:center 20%!important;}
+  .comeback-photo{min-height:240px!important;}
+  .comeback-ov{padding:1.5rem 1.2rem 1.2rem!important;}
+  .comeback-ov h4{font-size:1.05rem!important;}
+  .comeback-ov p{font-size:0.7rem!important;}
 }
+
+html,body{overflow-x:hidden;}
+img{max-width:100%;}
 
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25D366;color:white;border-radius:50px;padding:12px 20px 12px 14px;display:flex;align-items:center;gap:8px;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:all 0.25s;}
 .wa-float:hover{background:#1ebe5d;box-shadow:0 6px 28px rgba(37,211,102,0.5);transform:translateY(-2px);}
@@ -224,6 +234,35 @@ footer a{color:var(--gold);text-decoration:none;}
     .footer-top{grid-template-columns:1fr;}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elysium Care",
+  "alternateName": "Elysium Care™",
+  "url": "https://elysiumcare.org",
+  "logo": "https://elysiumcare.org/images/home-img-01.jpeg",
+  "description": "Dignified senior companionship and scam protection service. Free recovery support for scam survivors.",
+  "founder": {
+    "@type": "Person",
+    "name": "Arshad Noor"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-678-541-8184",
+    "contactType": "customer service",
+    "email": "care@elysiumcare.org",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@ElysiumCareOfficial",
+    "https://www.instagram.com/ElysiumCareOfficial",
+    "https://www.facebook.com/ElysiumCareOfficial",
+    "https://www.youtube.com/@ElysiumCareOfficial"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -322,63 +361,6 @@ footer a{color:var(--gold);text-decoration:none;}
 </div>
 
 
-<!-- ══ MAY — IN MEMORIAM OF LOVE ══ -->
-<div style="background:linear-gradient(135deg,#1a0e08 0%,#0f0a06 100%);margin:0 -2rem;padding:5rem 2rem;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(201,169,110,0.05) 0%,transparent 70%);"></div>
-  <div style="max-width:700px;margin:0 auto;position:relative;">
-
-    <!-- Eyebrow -->
-    <div style="font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(201,169,110,0.6);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;">
-      A Tribute
-      <div style="flex:1;height:1px;background:rgba(201,169,110,0.15);"></div>
-    </div>
-
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;color:#e8d5b0;line-height:1.2;margin-bottom:2rem;">
-      Princess May.<br><em style="font-style:italic;color:var(--gold);">The one who taught him<br>how to love.</em>
-    </h2>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:1.4rem;">Before the scams. Before the darkness. Before the three attempts and the months unable to walk — there was May. She was not just the love of his life. She was his lifeline. The person who made every 18-hour day feel like it had a destination worth reaching.</p>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:1.4rem;">She named him <strong style="color:rgba(255,255,255,0.65);">Nugget.</strong> He named her <strong style="color:rgba(255,255,255,0.65);">Princess.</strong> And he means it — from the bottom of his heart, till his last breath.</p>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:1.4rem;">They had planned their marriage in Turkey. They had bought the tickets — <strong style="color:rgba(255,255,255,0.65);">$2,400 USD.</strong> Those tickets became part of the loss. Not the biggest loss in money. But perhaps the one that cost the most — because May was the anchor that, when she was gone, left him completely exposed to the darkness that followed. He believes that if she had still been with him, he would not have fallen for the second or third scam. The loneliness her absence created is what opened the door. And the scammers walked right through it.</p>
-
-    <!-- Birthday cake -->
-    <div style="margin:3rem 0;border-radius:20px;overflow:hidden;max-width:420px;margin-left:auto;margin-right:auto;box-shadow:0 20px 60px rgba(0,0,0,0.5);position:relative;">
-      <img src="images/founder-img-10.jpeg" alt="Birthday cake for Princess May — 12.12.25" style="width:100%;display:block;" loading="lazy">
-      <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,transparent 100%);text-align:center;">
-        <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--gold);margin-bottom:0.3rem;">Happy Birthday, Princess May</p>
-        <p style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);">12 · 12 · 2025 — Celebrated alone, as always</p>
-      </div>
-    </div>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:1.4rem;">Every year on <strong style="color:rgba(255,255,255,0.65);">12th December,</strong> he celebrates her birthday. Alone. Quietly. With a cake and his heart full of everything he has never said out loud — because he does not want to hurt her. She has moved on to a completely different path. He accepted that. He said — her happiness alone, even if it is without him, is enough. That is the kind of love he learned from her.</p>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:1.4rem;">She taught him how to love someone without caring about their financial status, their language, their colour, their nationality — but only about the person and their character. <strong style="color:rgba(255,255,255,0.65);">She advised him not to take revenge.</strong> She knew everything about what had happened — about the woman who had betrayed him — and she said: become the best version of yourself. Leave it to Allah SWT. Let Him handle what was done to you.</p>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:1.4rem;">He still does not know how much she knows about what happened after. About the three attempts. About the heart attack. About the months he could not walk. About the nights he almost did not survive. He has never told her. Because he does not want her to carry that. <strong style="color:rgba(255,255,255,0.65);">Her peace matters more than his need to be understood.</strong></p>
-
-    <p style="font-size:1rem;line-height:2.1;color:rgba(255,255,255,0.42);font-weight:300;margin-bottom:2.5rem;">They still connect sometimes. After months of silence — a hello, a hi. He checks her Last Seen on WhatsApp. And when he sees it — when he knows she is okay, that she has been online, that she is somewhere in the world doing fine — he breathes again. That is enough. That has always been enough.</p>
-
-    <!-- Quote block -->
-    <div style="border-left:3px solid var(--gold);padding:1.2rem 0 1.2rem 2rem;margin:2rem 0;">
-      <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,2.2vw,1.55rem);font-style:italic;color:#e8d5b0;line-height:1.6;">
-        "One day she may be proud of me. That is what I am working toward. Not to win her back. Not to prove the world wrong. But because she believed I could become the best version of myself — and I owe it to her to try."
-      </p>
-      <p style="font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-top:1rem;">— Arshad Noor</p>
-    </div>
-
-    <!-- May in BeUncheated -->
-    <div style="background:rgba(201,169,110,0.06);border:1px solid rgba(201,169,110,0.15);border-radius:16px;padding:2rem;margin-top:2.5rem;text-align:center;">
-      <p style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;">In her honour</p>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#e8d5b0;line-height:1.6;font-style:italic;">May's Surprise · May's Special · May's Delight<br>May's Dream · May's Warmth</p>
-      <p style="font-size:0.82rem;color:rgba(255,255,255,0.3);margin-top:0.8rem;line-height:1.7;">The premium Jarfresh product line of BeUncheated carries her name. Not as branding. As remembrance. <em style="color:rgba(201,169,110,0.6);">Kuch cheezein sirf feel hoti hain.</em></p>
-    </div>
-
-  </div>
-</div>
-
-
 <div class="body">
 
 <!-- ══ MAY — THE LOVE OF HIS LIFE ══ -->
@@ -394,7 +376,7 @@ footer a{color:var(--gold);text-decoration:none;}
     </h3>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;max-width:860px;margin:0 auto;">
+  <div class="may-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;max-width:860px;margin:0 auto;">
     
     <!-- Left: text -->
     <div>
@@ -744,8 +726,8 @@ footer a{color:var(--gold);text-decoration:none;}
   var btn=document.getElementById('navHamburger');
   var links=document.querySelector('.nav-links');
   if(!btn||!links)return;
-  btn.addEventListener('click',function(){btn.classList.toggle('open');links.classList.toggle('mobile-open');document.body.style.overflow=links.classList.contains('mobile-open')?'hidden':'';}); 
-  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');links.classList.remove('mobile-open');document.body.style.overflow='';})});
+  btn.addEventListener('click',function(){btn.classList.toggle('open');links.classList.toggle('mobile-open');var isOpen=links.classList.contains('mobile-open');document.body.style.overflow=isOpen?'hidden':'';document.body.classList.toggle('menu-open',isOpen);}); 
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');links.classList.remove('mobile-open');document.body.style.overflow='';document.body.classList.remove('menu-open');})});
 })();
 var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.style.opacity='1';en.target.style.transform='translateY(0)';obs.unobserve(en.target);}});},{threshold:0.05});
 document.querySelectorAll('.chapter,.lc,.tl-i,.shame,.cta,.qblock,.mock,.choice').forEach(function(el){el.style.opacity='0';el.style.transform='translateY(28px)';el.style.transition='opacity 0.85s ease,transform 0.85s ease';obs.observe(el);});
