@@ -588,5 +588,465 @@ document.querySelectorAll('.free-card,.truth-card,.stage,.reach-option,.fault-ta
   Chat on WhatsApp
 </a>
   <script src="referral-tracker.js"></script>
+<!-- ═══════════════════════════════════════════════════════════════
+     ELYSIUM CARE — EMAIL CAPTURE POPUP SYSTEM
+     Two popups: Entry (delayed) + Exit Intent
+     
+     HOW TO INSTALL:
+     1. Copy everything between the <style> and the closing </script>
+        tags below.
+     2. Paste it right before the closing </body> tag on EVERY page
+        of your site where you want popups to appear (or just on
+        key pages like index.html, scam-education.html, etc.)
+     3. That's it — no other files needed. Fully self-contained.
+     
+     HOW IT WORKS:
+     - Entry popup: appears 8 seconds after page load (or on first
+       page if visitor scrolls 40%), only once per visitor (uses
+       localStorage so it won't nag returning visitors for 7 days)
+     - Exit popup: triggers when mouse moves toward the top of the
+       browser (about to close tab / click back), desktop only.
+       On mobile, triggers after visitor has been on page 45+ seconds
+       and tries to scroll back up fast (proxy for "leaving" intent)
+     - Both forms submit to your existing Web3Forms endpoint
+     - Both are dismissible and won't reappear same session once closed
+     ═══════════════════════════════════════════════════════════════ -->
+
+<style>
+  /* ═══ SHARED POPUP STYLES ═══ */
+  .ec-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 21, 16, 0.78);
+    backdrop-filter: blur(4px);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .ec-popup-overlay.ec-show {
+    display: flex;
+    opacity: 1;
+  }
+
+  .ec-popup-card {
+    background: linear-gradient(160deg, #faf6f0 0%, #f3ece0 100%);
+    border-radius: 20px;
+    max-width: 480px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.45);
+    overflow: hidden;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+  }
+  .ec-popup-overlay.ec-show .ec-popup-card {
+    transform: scale(1) translateY(0);
+  }
+
+  .ec-popup-header {
+    background: linear-gradient(135deg, #1a1510 0%, #3d2e1e 100%);
+    padding: 32px 36px 26px;
+    text-align: center;
+    position: relative;
+  }
+  .ec-popup-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,169,110,0.2) 0%, transparent 65%);
+  }
+  .ec-popup-icon {
+    font-size: 34px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .ec-popup-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 8px;
+    position: relative;
+    font-weight: 500;
+  }
+  .ec-popup-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 1.3;
+    position: relative;
+  }
+  .ec-popup-title em {
+    color: #c9a96e;
+    font-style: italic;
+  }
+
+  .ec-popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 2;
+  }
+  .ec-popup-close:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+
+  .ec-popup-body {
+    padding: 28px 36px 36px;
+  }
+  .ec-popup-desc {
+    font-size: 14px;
+    color: #6b5a45;
+    line-height: 1.65;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .ec-popup-desc strong {
+    color: #3d2e1e;
+  }
+
+  .ec-popup-form-row {
+    margin-bottom: 12px;
+  }
+  .ec-popup-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(61,46,30,0.18);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: #3d2e1e;
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .ec-popup-input:focus {
+    border-color: #c9a96e;
+  }
+  .ec-popup-input::placeholder {
+    color: #b0a18c;
+  }
+
+  .ec-popup-submit {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #3d2e1e, #1a1510);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14.5px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+  }
+  .ec-popup-submit:hover {
+    opacity: 0.92;
+  }
+  .ec-popup-submit:active {
+    transform: scale(0.98);
+  }
+  .ec-popup-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .ec-popup-trust {
+    text-align: center;
+    font-size: 11px;
+    color: #9c8870;
+    margin-top: 14px;
+  }
+
+  .ec-popup-success {
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+  .ec-popup-success.ec-show-success {
+    display: block;
+  }
+  .ec-popup-success-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  .ec-popup-success-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    color: #3d2e1e;
+    margin-bottom: 8px;
+  }
+  .ec-popup-success-desc {
+    font-size: 13.5px;
+    color: #6b5a45;
+    line-height: 1.6;
+  }
+
+  /* Exit popup specific accent - warmer red-gold urgency tone */
+  .ec-popup-exit .ec-popup-header {
+    background: linear-gradient(135deg, #1a1510 0%, #4a2e1e 100%);
+  }
+  .ec-popup-exit .ec-popup-header::before {
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,130,90,0.2) 0%, transparent 65%);
+  }
+
+  @media (max-width: 480px) {
+    .ec-popup-header { padding: 26px 24px 22px; }
+    .ec-popup-body { padding: 24px 24px 28px; }
+    .ec-popup-title { font-size: 22px; }
+  }
+</style>
+
+<!-- ═══ ENTRY POPUP ═══ -->
+<div class="ec-popup-overlay" id="ecEntryPopup">
+  <div class="ec-popup-card">
+    <button class="ec-popup-close" onclick="ecCloseEntry()">✕</button>
+    <div class="ec-popup-header">
+      <div class="ec-popup-icon">🛡️</div>
+      <div class="ec-popup-eyebrow">Free Protection Guide</div>
+      <div class="ec-popup-title">You Are Not Alone.<br><em>Neither Is Your Family.</em></div>
+    </div>
+    <div class="ec-popup-body">
+      <div id="ecEntryFormWrap">
+        <p class="ec-popup-desc">
+          Get a <strong>free ebook</strong> on scam protection, loneliness recovery, or heartbreak healing — written from real, lived experience. <strong>Pick the one you need most.</strong>
+        </p>
+        <form id="ecEntryForm">
+          <input type="hidden" name="access_key" value="d8d55c24-e77c-4c46-8356-bcc4fb37f4b3">
+          <input type="hidden" name="subject" value="New Free Ebook Lead — Entry Popup">
+          <input type="hidden" name="from_name" value="Elysium Care Website">
+          <div class="ec-popup-form-row">
+            <input type="text" name="name" class="ec-popup-input" placeholder="Your first name" required>
+          </div>
+          <div class="ec-popup-form-row">
+            <input type="email" name="email" class="ec-popup-input" placeholder="Your email address" required>
+          </div>
+          <button type="submit" class="ec-popup-submit" id="ecEntrySubmitBtn">Send Me My Free Ebook →</button>
+        </form>
+        <div class="ec-popup-trust">No spam, ever. Just one honest email to deliver your guide.</div>
+      </div>
+      <div class="ec-popup-success" id="ecEntrySuccess">
+        <div class="ec-popup-success-icon">💛</div>
+        <div class="ec-popup-success-title">Thank you.</div>
+        <div class="ec-popup-success-desc">Your free guide is on its way to your inbox. Check your email in the next few minutes — and your spam folder, just in case.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EXIT INTENT POPUP ═══ -->
+<div class="ec-popup-overlay ec-popup-exit" id="ecExitPopup">
+  <div class="ec-popup-card">
+    <button class="ec-popup-close" onclick="ecCloseExit()">✕</button>
+    <div class="ec-popup-header">
+      <div class="ec-popup-icon">🤍</div>
+      <div class="ec-popup-eyebrow">Before You Go</div>
+      <div class="ec-popup-title">Protect Someone<br><em>You Love.</em></div>
+    </div>
+    <div class="ec-popup-body">
+      <div id="ecExitFormWrap">
+        <p class="ec-popup-desc">
+          You may not need this guide today. But someone in your life — a parent, a friend, someone quietly struggling — might. <strong>Get the free guide and send it to them.</strong>
+        </p>
+        <form id="ecExitForm">
+          <input type="hidden" name="access_key" value="d8d55c24-e77c-4c46-8356-bcc4fb37f4b3">
+          <input type="hidden" name="subject" value="New Free Ebook Lead — Exit Popup">
+          <input type="hidden" name="from_name" value="Elysium Care Website">
+          <div class="ec-popup-form-row">
+            <input type="text" name="name" class="ec-popup-input" placeholder="Your first name" required>
+          </div>
+          <div class="ec-popup-form-row">
+            <input type="email" name="email" class="ec-popup-input" placeholder="Your email address" required>
+          </div>
+          <button type="submit" class="ec-popup-submit" id="ecExitSubmitBtn">Send Me the Free Guide →</button>
+        </form>
+        <div class="ec-popup-trust">Takes 5 seconds. Could save someone you love.</div>
+      </div>
+      <div class="ec-popup-success" id="ecExitSuccess">
+        <div class="ec-popup-success-icon">💛</div>
+        <div class="ec-popup-success-title">Thank you.</div>
+        <div class="ec-popup-success-desc">Your free guide is on its way. Share it with anyone who might need it — that's exactly why we wrote it.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ═══ CONFIG ═══
+  var ENTRY_DELAY_MS = 8000;        // entry popup shows after 8 seconds
+  var ENTRY_SCROLL_PCT = 40;        // OR after 40% scroll, whichever first
+  var SUPPRESS_DAYS = 7;            // don't show entry popup again for 7 days after dismissal
+  var MOBILE_EXIT_DELAY_MS = 45000; // mobile "exit" proxy: 45s on page + fast upward scroll
+
+  var STORAGE_KEY_ENTRY = 'ec_entry_popup_last_shown';
+  var STORAGE_KEY_EXIT = 'ec_exit_popup_shown_session';
+
+  function daysSince(timestamp) {
+    return (Date.now() - timestamp) / (1000 * 60 * 60 * 24);
+  }
+
+  function shouldShowEntry() {
+    try {
+      var last = localStorage.getItem(STORAGE_KEY_ENTRY);
+      if (!last) return true;
+      return daysSince(parseInt(last, 10)) >= SUPPRESS_DAYS;
+    } catch (e) { return true; }
+  }
+
+  function markEntryShown() {
+    try { localStorage.setItem(STORAGE_KEY_ENTRY, Date.now().toString()); } catch (e) {}
+  }
+
+  function shouldShowExit() {
+    try {
+      return !sessionStorage.getItem(STORAGE_KEY_EXIT);
+    } catch (e) { return true; }
+  }
+
+  function markExitShown() {
+    try { sessionStorage.setItem(STORAGE_KEY_EXIT, '1'); } catch (e) {}
+  }
+
+  // ═══ ENTRY POPUP TRIGGER ═══
+  var entryShown = false;
+  function triggerEntry() {
+    if (entryShown || !shouldShowEntry()) return;
+    entryShown = true;
+    document.getElementById('ecEntryPopup').classList.add('ec-show');
+    markEntryShown();
+  }
+
+  if (shouldShowEntry()) {
+    setTimeout(triggerEntry, ENTRY_DELAY_MS);
+
+    window.addEventListener('scroll', function() {
+      var scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPct >= ENTRY_SCROLL_PCT) {
+        triggerEntry();
+      }
+    });
+  }
+
+  // ═══ EXIT POPUP TRIGGER (Desktop: mouse leaves toward top) ═══
+  var exitShown = false;
+  function triggerExit() {
+    if (exitShown || !shouldShowExit() || !entryShown) return;
+    // Only show exit if entry was already shown/dismissed - don't double up immediately
+    if (document.getElementById('ecEntryPopup').classList.contains('ec-show')) return;
+    exitShown = true;
+    document.getElementById('ecExitPopup').classList.add('ec-show');
+    markExitShown();
+  }
+
+  document.addEventListener('mouseout', function(e) {
+    if (e.clientY <= 0 && e.relatedTarget === null) {
+      triggerExit();
+    }
+  });
+
+  // ═══ EXIT POPUP TRIGGER (Mobile: time-based proxy) ═══
+  var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isMobile && shouldShowExit()) {
+    var mobileTimer = setTimeout(function() {
+      var lastScrollY = window.scrollY;
+      var fastUpScrollHandler = function() {
+        if (window.scrollY < lastScrollY - 80) {
+          triggerExit();
+          window.removeEventListener('scroll', fastUpScrollHandler);
+        }
+        lastScrollY = window.scrollY;
+      };
+      window.addEventListener('scroll', fastUpScrollHandler);
+    }, MOBILE_EXIT_DELAY_MS);
+  }
+
+  // ═══ CLOSE HANDLERS ═══
+  window.ecCloseEntry = function() {
+    document.getElementById('ecEntryPopup').classList.remove('ec-show');
+  };
+  window.ecCloseExit = function() {
+    document.getElementById('ecExitPopup').classList.remove('ec-show');
+  };
+
+  // Close on overlay click (not card click)
+  document.getElementById('ecEntryPopup').addEventListener('click', function(e) {
+    if (e.target === this) ecCloseEntry();
+  });
+  document.getElementById('ecExitPopup').addEventListener('click', function(e) {
+    if (e.target === this) ecCloseExit();
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      ecCloseEntry();
+      ecCloseExit();
+    }
+  });
+
+  // ═══ FORM SUBMISSION HANDLERS ═══
+  function handleFormSubmit(formId, submitBtnId, formWrapId, successId, closeFn) {
+    var form = document.getElementById(formId);
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById(submitBtnId);
+      var originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var formData = new FormData(form);
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
+          document.getElementById(formWrapId).style.display = 'none';
+          document.getElementById(successId).classList.add('ec-show-success');
+          setTimeout(closeFn, 4500);
+        } else {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        alert('Something went wrong. Please check your connection and try again.');
+      });
+    });
+  }
+
+  handleFormSubmit('ecEntryForm', 'ecEntrySubmitBtn', 'ecEntryFormWrap', 'ecEntrySuccess', ecCloseEntry);
+  handleFormSubmit('ecExitForm', 'ecExitSubmitBtn', 'ecExitFormWrap', 'ecExitSuccess', ecCloseExit);
+
+})();
+</script>
+
 </body>
 </html>
