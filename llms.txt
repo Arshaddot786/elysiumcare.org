@@ -20,6 +20,7 @@ Tagline: "Survived to protect. Built to never harm."
 ## Contact
 - [Get Started](https://elysiumcare.org/contact.html): Contact form and inquiry options.
 - [Join Our Team](https://elysiumcare.org/join-team.html): Careers and volunteer opportunities.
+- [Affiliate Program](https://elysiumcare.org/affiliate-program.html): Partner with Elysium Care.
 - Email: care@elysiumcare.org
 - WhatsApp: +1 678-541-8184
 
