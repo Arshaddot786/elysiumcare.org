@@ -39,7 +39,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--deep);
 nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:rgba(250,246,240,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
 .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--brown);text-decoration:none;letter-spacing:0.04em;}
 .logo span{color:var(--gold);}
-.nav-links{display:flex;gap:2rem;list-style:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
+.nav-links{display:flex;gap:1.3rem;white-space:nowrap;list-style:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
 .nav-links a{color:var(--mid);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--deep)!important;padding:0.5rem 1.3rem;border-radius:100px;font-weight:500;}
@@ -248,6 +248,7 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
   .stages-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
+a.logo{text-decoration:none;}
 </style>
 <script type="application/ld+json">
 {
@@ -307,7 +308,7 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
 <body>
 
 <nav>
-  <div class="logo">Elysium <span>Care™</span></div>
+  <a href="index.html" class="logo">Elysium <span>Care™</span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
@@ -551,6 +552,8 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       <a href="services.html">Services</a>
       <a href="scam-recovery.html">Free Recovery</a>
       <a href="scam-education.html">Scam Education</a>
+      <a href="heartbreak-recovery.html">Heartbreak Recovery</a>
+      <a href="corporate-wellbeing.html">Corporate Programs</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
