@@ -39,7 +39,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--deep);
 nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 4rem;background:rgba(250,246,240,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
 .logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--brown);text-decoration:none;letter-spacing:0.04em;}
 .logo span{color:var(--gold);}
-.nav-links{display:flex;gap:2rem;list-style:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
+.nav-links{display:flex;gap:1.3rem;white-space:nowrap;list-style:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;}
 .nav-links a{color:var(--mid);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--deep)!important;padding:0.5rem 1.3rem;border-radius:100px;font-weight:500;}
@@ -343,7 +343,7 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
       </div>
 
       <div>
-        <div class="contact-form-wrap">
+        <div class="contact-form-wrap" id="contact-form">
           <div class="section-label">Send a Message</div>
           <h2 style="font-size:1.8rem;margin-bottom:1.5rem;">Tell us how we can <em>help</em></h2>
 
@@ -362,7 +362,20 @@ footer{background:var(--deep);color:rgba(255,255,255,0.35);padding:4rem;}
               <span class="reason-pill" onclick="selectPill(this)">Loneliness Support</span>
               <span class="reason-pill" onclick="selectPill(this)">Heartbreak Recovery</span>
               <span class="reason-pill" onclick="selectPill(this)">Joining the Team</span>
+              <span class="reason-pill" onclick="selectPill(this)">Corporate &amp; Group Programs</span>
               <span class="reason-pill" onclick="selectPill(this)">General Question</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Plan you're interested in (optional)</label>
+              <select name="Plan" id="planField">
+                <option>Not sure yet</option>
+                <option value="essential">Essential Check-In — $149/mo + $49 one-time</option>
+                <option value="companion">Companion &amp; Protection — $249/mo + $49 one-time</option>
+                <option value="premium">Premium Dignity — $349/mo + $99 one-time</option>
+              </select>
             </div>
           </div>
 
@@ -477,6 +490,17 @@ function selectPill(el){
   el.classList.add('selected');
   document.getElementById('reasonField').value = el.textContent;
 }
+
+(function(){
+  try{
+    var q = new URLSearchParams(location.search);
+    function pill(txt){document.querySelectorAll('.reason-pill').forEach(function(p){if(p.textContent.trim()===txt){selectPill(p);}});}
+    var plan=q.get('plan'), reason=q.get('reason');
+    if(plan){var f=document.getElementById('planField'); if(f){f.value=plan;} pill('Senior Care Plans');}
+    else if(reason==='heartbreak'){pill('Heartbreak Recovery');}
+    else if(reason==='corporate'){pill('Corporate & Group Programs');}
+  }catch(e){}
+})();
 document.getElementById('contactForm').addEventListener('submit', function(e){
   e.preventDefault();
   var form = e.target;
